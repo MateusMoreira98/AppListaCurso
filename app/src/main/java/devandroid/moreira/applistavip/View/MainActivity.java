@@ -1,6 +1,8 @@
 package devandroid.moreira.applistavip.View;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,13 @@ import devandroid.moreira.applistavip.R;
 public class  MainActivity extends AppCompatActivity {
 
      Pessoa pessoa;
+     EditText editPrimeiroNome;
+     EditText editSobrenome;
+     EditText editCursoDesejado;
+     EditText editTelefonedeContato;
+     Button btnlimpar;
+     Button btnsalvar;
+     Button btnFinalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +37,23 @@ public class  MainActivity extends AppCompatActivity {
         pessoa.setCursoDesejado("Android");
         pessoa.setTelefoneContato("13988752495");
 
-        int parada = 0;
+        editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
+        editSobrenome = findViewById(R.id.editSobrenome);
+        editCursoDesejado = findViewById(R.id.editCursoDesejado);
+        editTelefonedeContato = findViewById(R.id.editTelefonedeContato);
+
+        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
+        editSobrenome.setText(pessoa.getSobreNome());
+        editCursoDesejado.setText(pessoa.getCursoDesejado());
+        editTelefonedeContato.setText(pessoa.getTelefoneContato());
+
+        btnlimpar = findViewById(R.id.btnlimpar);
+        btnsalvar = findViewById(R.id.btnsalvar);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
+
+
+
+
 
     }
 }
