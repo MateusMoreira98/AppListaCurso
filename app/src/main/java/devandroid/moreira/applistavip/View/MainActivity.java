@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 import devandroid.moreira.applistavip.Model.Pessoa;
 import devandroid.moreira.applistavip.R;
 
-public class MainActivity extends AppCompatActivity {
+public class  MainActivity extends AppCompatActivity {
 
      Pessoa pessoa;
 
@@ -23,9 +23,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoa = new Pessoa();
+        pessoa.setPrimeiroNome("Mateus");
+        pessoa.setSobreNome("Moreira");
+        pessoa.setCursoDesejado("Android");
+        pessoa.setTelefoneContato("13988752495");
 
-
-
+        int parada = 0;
 
     }
 }

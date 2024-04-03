@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".View.MainActivity">
 
-    <TextView
-        android:id="@+id/text_Titulo"
+    <TextView android:id="@+id/text_Titulo"
         android:layout_width="292dp"
         android:layout_height="30dp"
         android:text="@string/txt_titulo"
@@ -21,8 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.045" />
 
-    <EditText
-        android:id="@+id/editPrimeiroNome"
+    <EditText android:id="@+id/editPrimeiroNome"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="16dp"
@@ -35,8 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_Titulo"
         android:importantForAutofill="no" />
 
-    <EditText
-        android:id="@+id/editSobrenome"
+    <EditText android:id="@+id/editSobrenome"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="16dp"
@@ -47,8 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editPrimeiroNome"
         android:importantForAutofill="no" />
 
-    <EditText
-        android:id="@+id/editCursoDesejado"
+    <EditText android:id="@+id/editCursoDesejado"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="16dp"
@@ -59,8 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editSobrenome"
         android:importantForAutofill="no" />
 
-    <EditText
-        android:id="@+id/editTelefonedeContato"
+    <EditText android:id="@+id/editTelefonedeContato"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="16dp"
@@ -71,34 +66,31 @@
         app:layout_constraintTop_toBottomOf="@+id/editCursoDesejado"
         android:importantForAutofill="no" />
 
-    <Button
-        android:id="@+id/btnlimpar"
+    <Button android:id="@+id/btnlimpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="32dp"
         android:background="@color/CorBotoes"
         android:text="@string/txt_button_limpar"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelefonedeContato"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.647" />
 
-    <Button
-        android:id="@+id/btnsalvar"
+    <Button android:id="@+id/btnsalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
+        android:layout_marginStart="160dp"
         android:layout_marginBottom="32dp"
         android:background="@color/CorBotoes"
         android:text="@string/txt_button_salvar"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintStart_toEndOf="@+id/btnlimpar"
         app:layout_constraintTop_toBottomOf="@+id/editTelefonedeContato"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.647" />
 
-    <Button
-        android:id="@+id/btnFinalizar"
+    <Button android:id="@+id/btnFinalizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -106,10 +98,9 @@
         android:text="@string/txt_button_finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelefonedeContato"
-        app:layout_constraintVertical_bias="0.447" />
+        app:layout_constraintVertical_bias="0.336" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
