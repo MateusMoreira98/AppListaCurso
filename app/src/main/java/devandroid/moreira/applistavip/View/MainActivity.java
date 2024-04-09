@@ -1,5 +1,6 @@
 package devandroid.moreira.applistavip.View;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,9 @@ import devandroid.moreira.applistavip.R;
 import devandroid.moreira.applistavip.controller.PessoaController;
 
 public class  MainActivity extends AppCompatActivity {
-
-     PessoaController controller;
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "Pref_AppListaVip";
+    PessoaController controller;
      Pessoa pessoa;
      EditText editPrimeiroNome;
      EditText editSobrenome;
@@ -34,6 +36,9 @@ public class  MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+        SharedPreferences.Editor listaVip = preferences.edit();
 
         controller = new PessoaController();
         pessoa = new Pessoa();
@@ -73,6 +78,13 @@ public class  MainActivity extends AppCompatActivity {
                  editCursoDesejado.setText(pessoa.getCursoDesejado().toString());
                  editTelefonedeContato.setText(pessoa.getTelefoneContato().toString());
                  Toast.makeText(MainActivity.this,"Dados Salvos "+pessoa.toString(),Toast.LENGTH_LONG).show();
+
+                 listaVip.putString("primeiro nome ", pessoa.getPrimeiroNome());
+                 listaVip.putString("sobrenome ", pessoa.getSobreNome());
+                 listaVip.putString("curso desejado ", pessoa.getCursoDesejado());
+                 listaVip.putString("telefone ", pessoa.getTelefoneContato());
+                 listaVip.apply();
+
                  controller.salvar(pessoa);
              }
          });
