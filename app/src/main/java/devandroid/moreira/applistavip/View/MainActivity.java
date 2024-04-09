@@ -13,13 +13,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 
-import devandroid.moreira.applistavip.Controller.PessoaController;
 import devandroid.moreira.applistavip.Model.Pessoa;
 import devandroid.moreira.applistavip.R;
+import devandroid.moreira.applistavip.controller.PessoaController;
 
 public class  MainActivity extends AppCompatActivity {
 
-    PessoaController controller;
+     PessoaController controller;
      Pessoa pessoa;
      EditText editPrimeiroNome;
      EditText editSobrenome;
@@ -73,7 +73,7 @@ public class  MainActivity extends AppCompatActivity {
                  editCursoDesejado.setText(pessoa.getCursoDesejado().toString());
                  editTelefonedeContato.setText(pessoa.getTelefoneContato().toString());
                  Toast.makeText(MainActivity.this,"Dados Salvos "+pessoa.toString(),Toast.LENGTH_LONG).show();
-             controller.salvar(pessoa);
+                 controller.salvar(pessoa);
              }
          });
          btnFinalizar.setOnClickListener(new View.OnClickListener() {
