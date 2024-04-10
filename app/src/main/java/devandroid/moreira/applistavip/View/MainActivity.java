@@ -42,20 +42,25 @@ public class  MainActivity extends AppCompatActivity {
 
         controller = new PessoaController();
         pessoa = new Pessoa();
-        pessoa.setPrimeiroNome("Mateus");
-        pessoa.setSobreNome("Moreira");
-        pessoa.setCursoDesejado("Android");
-        pessoa.setTelefoneContato("13988752495");
 
-        editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
-        editSobrenome = findViewById(R.id.editSobrenome);
-        editCursoDesejado = findViewById(R.id.editCursoDesejado);
-        editTelefonedeContato = findViewById(R.id.editTelefonedeContato);
+        pessoa.setPrimeiroNome(preferences.getString("primeiro nome ",""));
+        pessoa.setSobreNome(preferences.getString("sobrenome ",""));
+        pessoa.setTelefoneContato(preferences.getString("telefone ", ""));
+        pessoa.setCursoDesejado(preferences.getString("curso desejado ",""));
 
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
         editSobrenome.setText(pessoa.getSobreNome());
         editCursoDesejado.setText(pessoa.getCursoDesejado());
         editTelefonedeContato.setText(pessoa.getTelefoneContato());
+
+
+
+
+
+        editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
+        editSobrenome = findViewById(R.id.editSobrenome);
+        editCursoDesejado = findViewById(R.id.editCursoDesejado);
+        editTelefonedeContato = findViewById(R.id.editTelefonedeContato);
 
         btnlimpar = findViewById(R.id.btnlimpar);
         btnsalvar = findViewById(R.id.btnsalvar);
