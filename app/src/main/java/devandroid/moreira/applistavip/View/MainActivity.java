@@ -20,6 +20,7 @@ import devandroid.moreira.applistavip.controller.PessoaController;
 
 public class  MainActivity extends AppCompatActivity {
     SharedPreferences preferences;
+    SharedPreferences.Editor listaVip;
     public static final String NOME_PREFERENCES = "Pref_AppListaVip";
     PessoaController controller;
      Pessoa pessoa;
@@ -38,7 +39,7 @@ public class  MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = getSharedPreferences(NOME_PREFERENCES,0);
-        SharedPreferences.Editor listaVip = preferences.edit();
+        listaVip = preferences.edit();
 
         controller = new PessoaController();
         pessoa = new Pessoa();
@@ -73,6 +74,10 @@ public class  MainActivity extends AppCompatActivity {
                  editSobrenome.setText("");
                  editCursoDesejado.setText("");
                  editTelefonedeContato.setText("");
+
+                 listaVip.clear();
+                 listaVip.apply();
+
              }
          });
          btnsalvar.setOnClickListener(new View.OnClickListener() {
