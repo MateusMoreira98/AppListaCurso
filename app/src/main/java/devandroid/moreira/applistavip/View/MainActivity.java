@@ -19,10 +19,8 @@ import devandroid.moreira.applistavip.R;
 import devandroid.moreira.applistavip.controller.PessoaController;
 
 public class  MainActivity extends AppCompatActivity {
-    SharedPreferences preferences;
-    SharedPreferences.Editor listaVip;
-    public static final String NOME_PREFERENCES = "Pref_AppListaVip";
-    PessoaController controller;
+
+     PessoaController controller;
      Pessoa pessoa;
      EditText editPrimeiroNome;
      EditText editSobrenome;
@@ -38,25 +36,14 @@ public class  MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        preferences = getSharedPreferences(NOME_PREFERENCES,0);
-        listaVip = preferences.edit();
-
-        controller = new PessoaController();
+        controller = new PessoaController(MainActivity.this);
         pessoa = new Pessoa();
-
-        pessoa.setPrimeiroNome(preferences.getString("primeiro nome ",""));
-        pessoa.setSobreNome(preferences.getString("sobrenome ",""));
-        pessoa.setTelefoneContato(preferences.getString("telefone ", ""));
-        pessoa.setCursoDesejado(preferences.getString("curso desejado ",""));
+        controller.buscar(pessoa);
 
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
         editSobrenome.setText(pessoa.getSobreNome());
         editCursoDesejado.setText(pessoa.getCursoDesejado());
         editTelefonedeContato.setText(pessoa.getTelefoneContato());
-
-
-
-
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobrenome = findViewById(R.id.editSobrenome);
@@ -74,9 +61,7 @@ public class  MainActivity extends AppCompatActivity {
                  editSobrenome.setText("");
                  editCursoDesejado.setText("");
                  editTelefonedeContato.setText("");
-
-                 listaVip.clear();
-                 listaVip.apply();
+                 controller.limpar_dados();
 
              }
          });
@@ -88,12 +73,6 @@ public class  MainActivity extends AppCompatActivity {
                  editCursoDesejado.setText(pessoa.getCursoDesejado().toString());
                  editTelefonedeContato.setText(pessoa.getTelefoneContato().toString());
                  Toast.makeText(MainActivity.this,"Dados Salvos "+pessoa.toString(),Toast.LENGTH_LONG).show();
-
-                 listaVip.putString("primeiro nome ", pessoa.getPrimeiroNome());
-                 listaVip.putString("sobrenome ", pessoa.getSobreNome());
-                 listaVip.putString("curso desejado ", pessoa.getCursoDesejado());
-                 listaVip.putString("telefone ", pessoa.getTelefoneContato());
-                 listaVip.apply();
 
                  controller.salvar(pessoa);
              }
