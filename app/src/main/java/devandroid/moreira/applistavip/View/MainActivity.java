@@ -1,6 +1,5 @@
 package devandroid.moreira.applistavip.View;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,17 +8,17 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
+import java.util.List;
 
 import devandroid.moreira.applistavip.Model.Pessoa;
+import devandroid.moreira.applistavip.Model.curso;
 import devandroid.moreira.applistavip.R;
+import devandroid.moreira.applistavip.controller.CursoController;
 import devandroid.moreira.applistavip.controller.PessoaController;
 
 public class  MainActivity extends AppCompatActivity {
-
+    CursoController cursocontroller;
+     List<curso> ListaDeCurso;
      PessoaController controller;
      Pessoa pessoa;
      EditText editPrimeiroNome;
@@ -39,6 +38,8 @@ public class  MainActivity extends AppCompatActivity {
         controller = new PessoaController(MainActivity.this);
         pessoa = new Pessoa();
         controller.buscar(pessoa);
+        cursocontroller = new CursoController();
+        ListaDeCurso = cursocontroller.getListaDeCursos();
 
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
         editSobrenome.setText(pessoa.getSobreNome());
