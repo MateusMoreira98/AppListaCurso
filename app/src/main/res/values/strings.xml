@@ -8,5 +8,6 @@
     <string name="txt_button_limpar">LImpar</string>
     <string name="txt_button_salvar">Salvar</string>
     <string name="txt_button_finalizar">Finalizar</string>
+    <string name="txt_selecione_o_curso_desejado">Selecione o curso desejado...</string>
 
 </resources>

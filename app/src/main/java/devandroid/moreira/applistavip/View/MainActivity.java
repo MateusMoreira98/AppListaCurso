@@ -18,7 +18,7 @@ import devandroid.moreira.applistavip.R;
 import devandroid.moreira.applistavip.controller.CursoController;
 import devandroid.moreira.applistavip.controller.PessoaController;
 
-public class  MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     CursoController cursocontroller;
      List<String> nomeDoCurso;
      PessoaController controller;
@@ -37,7 +37,7 @@ public class  MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_spinner);
 
         controller = new PessoaController(MainActivity.this);
         pessoa = new Pessoa();
