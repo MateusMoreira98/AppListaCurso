@@ -1,9 +1,12 @@
 package devandroid.moreira.applistavip.View;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -11,14 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 import devandroid.moreira.applistavip.Model.Pessoa;
-import devandroid.moreira.applistavip.Model.curso;
 import devandroid.moreira.applistavip.R;
 import devandroid.moreira.applistavip.controller.CursoController;
 import devandroid.moreira.applistavip.controller.PessoaController;
 
 public class  MainActivity extends AppCompatActivity {
     CursoController cursocontroller;
-     List<curso> ListaDeCurso;
+     List<String> nomeDoCurso;
      PessoaController controller;
      Pessoa pessoa;
      EditText editPrimeiroNome;
@@ -28,6 +30,8 @@ public class  MainActivity extends AppCompatActivity {
      Button btnlimpar;
      Button btnsalvar;
      Button btnFinalizar;
+
+     Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +43,7 @@ public class  MainActivity extends AppCompatActivity {
         pessoa = new Pessoa();
         controller.buscar(pessoa);
         cursocontroller = new CursoController();
-        ListaDeCurso = cursocontroller.getListaDeCursos();
+        nomeDoCurso = cursocontroller.dadosParaSpinner();
 
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
         editSobrenome.setText(pessoa.getSobreNome());
@@ -54,6 +58,13 @@ public class  MainActivity extends AppCompatActivity {
         btnlimpar = findViewById(R.id.btnlimpar);
         btnsalvar = findViewById(R.id.btnsalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
+        cursocontroller.dadosParaSpinner();
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        spinner.setAdapter(adapter);
 
          btnlimpar.setOnClickListener(new View.OnClickListener() {
              @Override
